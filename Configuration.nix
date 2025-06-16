@@ -143,11 +143,11 @@ in
       Restart = "always";
       # Environment = [
       #   "ASPNETCORE_ENVIRONMENT=Production"
-      #   "ASPNETCORE_URLS=http://0.0.0.0:5238" # Explicit port binding
+      #   "ASPNETCORE_URLS=http://0.0.0.0:8080" # Explicit port binding
       # ];
       Environment = [
         "ASPNETCORE_ENVIRONMENT=Production"
-        "ASPNETCORE_URLS=http://0.0.0.0:5238;https://0.0.0.0:7270"
+        "ASPNETCORE_URLS=http://0.0.0.0:8080 https://0.0.0.0:8080"
       ];
     };
 
@@ -175,12 +175,12 @@ in
     enable = true;
     # Open only the .NET API ports to the world
     allowedTCPPorts = [
-      5238  # HTTP API
-      7270  # HTTPS API
+      8080
     ];
     # Explicitly allow SSH only from trusted IPs (optional)
     allowedTCPPortRanges = [
       { from = 22; to = 22; } # SSH
+      { from = 8080; to = 8080; }
     ];
   };
 
